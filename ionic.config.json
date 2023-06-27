@@ -1,0 +1,7 @@
+{
+  "name": "payment-gateway",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
