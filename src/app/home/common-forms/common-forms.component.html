@@ -1,0 +1,46 @@
+<ion-grid>
+  <ion-row class="ion-margin">
+    <ion-text color="medium">
+      <h2>Sample Title:</h2>
+    </ion-text>
+  </ion-row>
+  <ion-row class="ion-margin" >
+    <ion-col size="6" *ngFor="let field of fields">
+      <ion-input *ngIf="field.questionType==='text'" [label]="field.questionText" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <ion-input *ngIf="field.questionType==='number'" [label]="field.questionText" type="number" label-placement="floating" fill="outline" placeholder="000"></ion-input>
+      <ion-input *ngIf="field.questionType==='email'" [label]="field.questionText" type="email" label-placement="floating" fill="outline" placeholder="email@domain.com"></ion-input>
+
+      <ion-input *ngIf="field.questionType==='phone'" [label]="field.questionText" type="tel" label-placement="floating" fill="outline"  placeholder="888-888-8888"></ion-input>
+
+
+      <ion-item  *ngIf="field.questionType==='select'">
+        <ion-select [label]="field.questionText">
+          <ion-select-option value="apple">Apple</ion-select-option>
+          <ion-select-option value="banana">Banana</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="field.questionType==='multi-select'">
+        <ion-select [label]="field.questionText" [multiple]="true">
+          <ion-select-option value="apple">Apple</ion-select-option>
+          <ion-select-option value="banana">Banana</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-textarea *ngIf="field.questionType==='description'" [label]="field.questionText" labelPlacement="floating" 
+      labelPlacement="floating" [counter]="true" maxlength="20" placeholder="Type something here"></ion-textarea>
+      <ion-radio-group *ngIf="field.questionType==='radio'" value="custom-checked">
+        <ion-radio value="custom" aria-label="Custom checkbox" labelPlacement="end" class="ion-margin-top">Test 1</ion-radio>
+        <ion-radio value="custom-checked" aria-label="Custom checkbox that is checked" labelPlacement="end" class="ion-margin-top ion-margin-start"> Test 2</ion-radio>
+      </ion-radio-group>
+      <ion-checkbox class="ion-margin-top"  *ngIf="field.questionType==='checkbox'" labelPlacement="end">{{field.questionText}}</ion-checkbox>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" class="ion-margin-top">
+      <ion-button class="ion-float-right" fill="outline" color="success">Save</ion-button>
+      <ion-button fill="outline" color="medium" class="ion-float-right">Cancel</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

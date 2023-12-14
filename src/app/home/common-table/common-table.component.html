@@ -1,0 +1,37 @@
+<div class="table-card">
+  <p-table [columns]="cols" responsiveLayout="stack" [value]="products" [tableStyle]="{ 'min-width': '40rem' }"
+  [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10, 15, 20]">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <button class="btn btn-sm mb-1 custom-filter-btn" style="color: #6D5BD0;
+        border-color: #6D5BD0;">
+          <i class="pi pi-filter-fill"></i> Filter
+        </button>
+        <span class="p-input-icon-left ms-3">
+          <i class="pi pi-search" style="color: #6D5BD0;"></i>
+          <input type="text" class="form-control-sm me-2" style="color: #6D5BD0;
+          border: 1px solid #6D5BD0; border-radius: 5px;"/>
+      </span>
+      <button class="btn btn-sm" style="color: #f0eff3;
+        background-color: #6D5BD0; float: right;">
+          SEND REMAINDER
+        </button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{ col.header.toUpperCase() }}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>
+
